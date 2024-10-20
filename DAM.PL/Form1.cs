@@ -25,6 +25,15 @@ namespace DAM.PL
             cb_nhacungcap.ValueMember = "Id"; 
         }
 
+        private void LoadNhaCungCapToTimKiemComboBox()
+        {
+            var nhaCungCaps = _sanPhamService.GetAllNhaCungCap(); 
+
+            cb_timkiem.DataSource = nhaCungCaps;
+            cb_timkiem.DisplayMember = "Ten"; 
+            cb_timkiem.ValueMember = "Id"; 
+        }
+
         private void LoadFormDataSanPham()
         {
             dgv_sanpham.Columns.Clear();
