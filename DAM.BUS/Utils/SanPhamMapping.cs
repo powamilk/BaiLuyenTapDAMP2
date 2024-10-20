@@ -19,6 +19,7 @@ namespace DAM.BUS.Utils
                 Mota = entity.Mota,
                 Soluongtonkho = entity.Soluongtonkho,
                 Giatien = entity.Giatien,
+                IdNcc = entity.IdNcc,
             };
         }
 
@@ -32,6 +33,7 @@ namespace DAM.BUS.Utils
                 Mota = createVM.Mota,
                 Soluongtonkho = createVM.Soluongtonkho,
                 Giatien = createVM.Soluongtonkho,
+                IdNcc = createVM.IdNcc,
             };
         }
 
@@ -44,6 +46,7 @@ namespace DAM.BUS.Utils
                 Mota = updateVM.Mota,
                 Soluongtonkho = updateVM.Soluongtonkho,
                 Giatien = updateVM.Soluongtonkho,
+                IdNcc = updateVM.IdNcc,
             };
         }
     }

@@ -53,12 +53,10 @@ namespace DAM.DAL.Repositories
 
         public List<Sanpham> GetList()
         {
-            var monHocs = _context.Sanphams
-                           .Include(mh => mh.IdNccNavigation)
-                           .ToList();
-
-            return monHocs;
-
+            var sanphams = _context.Sanphams
+                            .Include(sp => sp.IdNccNavigation)
+                            .ToList();
+            return sanphams;
         }
 
         public bool Update(Sanpham sanpham)

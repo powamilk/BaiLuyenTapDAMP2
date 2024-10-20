@@ -18,5 +18,6 @@ namespace DAM.BUS.ViewModel
         public int? Giatien { get; set; }
 
         public int? IdNcc { get; set; }
+        public NhaCungCapVM NhaCungCap { get; set; }
     }
 }

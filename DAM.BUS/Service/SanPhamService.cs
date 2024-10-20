@@ -49,9 +49,26 @@ namespace DAM.BUS.Service
 
         public List<SanPhamVM> GetList()
         {
-            List<Sanpham> entities = _repo.GetList();
-            var vms = entities.Select(e => SanPhamMapping.MapEntityToVM(e)).ToList();
-            return vms;
+            var sanphams = _repo.GetList();
+            var sanPhamVMs = sanphams.Select(sp => new SanPhamVM
+            {
+                Id = sp.Id,
+                Ten = sp.Ten,
+                Mota = sp.Mota,
+                Soluongtonkho = sp.Soluongtonkho ?? 0,
+                Giatien = sp.Giatien ?? 0,
+                IdNcc = sp.IdNcc ?? 0,
+                NhaCungCap = sp.IdNccNavigation != null
+                             ? new NhaCungCapVM
+                             {
+                                 Id = sp.IdNccNavigation.Id,
+                                 Ten = sp.IdNccNavigation.Ten,
+                                 Diachi = sp.IdNccNavigation.Diachi
+                             }
+                             : null  
+            }).ToList();
+
+            return sanPhamVMs;
         }
 
         public bool Update(SanPhamUpdateVM updateVM)
